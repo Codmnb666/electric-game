@@ -10,39 +10,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 1. 获取仓库代码
+    - name: 1. 获取代码
       uses: actions/checkout@v4
 
-    - name: 2. 设置 Python 环境
+    - name: 2. 设置 Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
-    - name: 3. 设置 Java 环境
+    - name: 3. 设置 Java
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: 4. 安装系统依赖和 Buildozer
+    - name: 4. 安装所有底层依赖
       run: |
         sudo apt-get update
-        # 安装编译所需的底层库
-        sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
-        # 升级 pip 并安装打包工具
-        pip3 install --upgrade buildozer cython virtualenv
+        # 补齐了 libltdl-dev 等编译必需库
+        sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev libltdl-dev
+        # 强制锁定 Cython 低于 3.0，否则 pygame 必报错
+        pip3 install --upgrade pip
+        pip3 install "Cython<3.0" "buildozer==1.5.0" virtualenv
 
-    - name: 5. 执行 Buildozer 打包
+    - name: 5. 开始打包 (清理缓存)
       run: |
-        # 清理可能的缓存
+        # 删掉可能污染的缓存
         rm -rf ~/.buildozer
-        # 开始打包 (首次运行需要下载 SDK/NDK，大约需要 20-30 分钟)
+        # 开始打包 (第一次需要20-30分钟)
         buildozer -v android debug
 
-    - name: 6. 上传生成的 APK
+    - name: 6. 上传 APK
       uses: actions/upload-artifact@v4
       with:
         name: CircuitLab-APK
-        # 自动抓取 bin 目录下生成的 apk 文件
         path: bin/*.apk
         if-no-files-found: error
