@@ -1,27 +1,49 @@
-[app]
-title = 电路积木
-package.name = circuitlab
-package.domain = org.circuitlab
-source.dir = .
-source.include_exts = py,png,jpg,ttf,txt,svg,json
-source.exclude_dirs = .git,.github,__pycache__,screenshots,tests
-version = 1.0
+name: Build Android APK
 
-# 【关键修改】使用 pygame-ce 替代 pygame，解决编译报错
-requirements = python3,pygame-ce
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
 
-orientation = landscape
-fullscreen = 1
-presplash.color = #0f1116
-android.archs = arm64-v8a,armeabi-v7a
-android.allow_backup = True
-android.accept_sdk_license = True
-android.api = 33
-android.minapi = 24
-android.ndk_api = 24
-android.entrypoint = org.kivy.android.PythonActivity
-p4a.bootstrap = sdl2
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-[buildozer]
-log_level = 2
-warn_on_root = 1
+    steps:
+    - name: 1. 获取仓库代码
+      uses: actions/checkout@v4
+
+    - name: 2. 设置 Python 环境
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: 3. 设置 Java 环境
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: 4. 安装系统依赖和 Buildozer
+      run: |
+        sudo apt-get update
+        # 安装编译所需的底层库
+        sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+        # 升级 pip 并安装打包工具
+        pip3 install --upgrade buildozer cython virtualenv
+
+    - name: 5. 执行 Buildozer 打包
+      run: |
+        # 清理可能的缓存
+        rm -rf ~/.buildozer
+        # 开始打包 (首次运行需要下载 SDK/NDK，大约需要 20-30 分钟)
+        buildozer -v android debug
+
+    - name: 6. 上传生成的 APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: CircuitLab-APK
+        # 自动抓取 bin 目录下生成的 apk 文件
+        path: bin/*.apk
+        if-no-files-found: error
+        
