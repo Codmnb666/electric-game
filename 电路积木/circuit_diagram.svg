@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="798" height="712" viewBox="0 0 798 712" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect x="0" y="0" width="798" height="712" fill="#ffffff"/>
+<text x="28" y="38" font-size="22" fill="#2c3240" font-weight="700">电路图</text>
+<text x="28" y="62" font-size="12" fill="#59606f">元件 4 个 · 导线 5 根 · 剪断 0 根</text>
+<polyline points="30.0,356.0 6.0,356.0 6.0,318.5 196.0,318.5 196.0,281.0 220.0,281.0" fill="none" stroke="#9a8c80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="340.0,281.0 364.0,281.0 364.0,318.5 386.0,318.5 386.0,356.0 410.0,356.0" fill="none" stroke="#9a8c80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="340.0,281.0 364.0,281.0 364.0,356.0 196.0,356.0 196.0,431.0 220.0,431.0" fill="none" stroke="#9a8c80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="530.0,356.0 554.0,356.0 554.0,393.5 364.0,393.5 364.0,431.0 340.0,431.0" fill="none" stroke="#9a8c80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="150.0,356.0 174.0,356.0 174.0,393.5 364.0,393.5 364.0,431.0 340.0,431.0" fill="none" stroke="#9a8c80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="30.0" y1="356.0" x2="80.0" y2="356.0" stroke="#d05a5a" stroke-width="2" stroke-linecap="round"/>
+<line x1="100.0" y1="356.0" x2="150.0" y2="356.0" stroke="#d05a5a" stroke-width="2" stroke-linecap="round"/>
+<line x1="80.0" y1="342.0" x2="80.0" y2="370.0" stroke="#d05a5a" stroke-width="4" stroke-linecap="round"/>
+<line x1="100.0" y1="349.0" x2="100.0" y2="363.0" stroke="#d05a5a" stroke-width="4" stroke-linecap="round"/>
+<text x="66.0" y="342.0" font-size="11" fill="#d05a5a" text-anchor="middle">+</text>
+<text x="114.0" y="342.0" font-size="11" fill="#d05a5a" text-anchor="middle">−</text>
+<text x="90.0" y="398.0" font-size="12" fill="#59606f" text-anchor="middle">电池 #1</text>
+<text x="90.0" y="414.0" font-size="12" fill="#59606f" text-anchor="middle">6V</text>
+<line x1="220.0" y1="281.0" x2="258.0" y2="281.0" stroke="#1f9e83" stroke-width="2" stroke-linecap="round"/>
+<line x1="302.0" y1="281.0" x2="340.0" y2="281.0" stroke="#1f9e83" stroke-width="2" stroke-linecap="round"/>
+<line x1="258.0" y1="281.0" x2="302.0" y2="281.0" stroke="#1f9e83" stroke-width="3" stroke-linecap="round"/>
+<circle cx="258.0" cy="281.0" r="3" fill="#1f9e83" stroke="#1f9e83" stroke-width="2"/>
+<circle cx="302.0" cy="281.0" r="3" fill="#1f9e83" stroke="#1f9e83" stroke-width="2"/>
+<text x="280.0" y="323.0" font-size="12" fill="#59606f" text-anchor="middle">开关 #2</text>
+<text x="280.0" y="339.0" font-size="12" fill="#59606f" text-anchor="middle">闭合</text>
+<line x1="410.0" y1="356.0" x2="453.0" y2="356.0" stroke="#d98318" stroke-width="2" stroke-linecap="round"/>
+<line x1="487.0" y1="356.0" x2="530.0" y2="356.0" stroke="#d98318" stroke-width="2" stroke-linecap="round"/>
+<line x1="460.0" y1="346.0" x2="480.0" y2="366.0" stroke="#d98318" stroke-width="2" stroke-linecap="round"/>
+<line x1="460.0" y1="366.0" x2="480.0" y2="346.0" stroke="#d98318" stroke-width="2" stroke-linecap="round"/>
+<circle cx="470.0" cy="356.0" r="15" fill="none" stroke="#d98318" stroke-width="2"/>
+<text x="470.0" y="398.0" font-size="12" fill="#59606f" text-anchor="middle">灯泡 #3</text>
+<text x="470.0" y="414.0" font-size="12" fill="#59606f" text-anchor="middle">12Ω / 6V</text>
+<line x1="220.0" y1="431.0" x2="263.0" y2="431.0" stroke="#d98318" stroke-width="2" stroke-linecap="round"/>
+<line x1="297.0" y1="431.0" x2="340.0" y2="431.0" stroke="#d98318" stroke-width="2" stroke-linecap="round"/>
+<line x1="270.0" y1="421.0" x2="290.0" y2="441.0" stroke="#d98318" stroke-width="2" stroke-linecap="round"/>
+<line x1="270.0" y1="441.0" x2="290.0" y2="421.0" stroke="#d98318" stroke-width="2" stroke-linecap="round"/>
+<circle cx="280.0" cy="431.0" r="15" fill="none" stroke="#d98318" stroke-width="2"/>
+<text x="280.0" y="473.0" font-size="12" fill="#59606f" text-anchor="middle">灯泡 #4</text>
+<text x="280.0" y="489.0" font-size="12" fill="#59606f" text-anchor="middle">12Ω / 6V</text>
+</svg>
